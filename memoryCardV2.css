@@ -1,0 +1,140 @@
+/*body{*/
+	/*/*background: #99ffbb;*/
+/*	font-family: PT Sans Narrow, Helvetica;
+	text-align: center;
+	font-size: 27px;
+	color: #1f3d7a;*/
+/*
+}*/
+
+.container{
+	width: 950px;
+	height: 700px;
+	background: #daf9d2;
+	border-radius: 15px;
+	box-shadow: 0 0 15px #a3ef8f inset;
+	position: relative;
+}
+
+.top-panel{
+	background: #3366cc;
+	width: 855px;
+	height: 70px;
+	border-radius: 12px;
+	box-shadow: 0 0 15px #1f3d7a inset;
+	margin-top: 15px;
+	margin-bottom: 10px;
+	margin-left: 42px;
+	float: left;
+}
+
+.title{
+	font-family: Verdana, Helvetica;
+	text-align: center;
+	font-size: 44px;
+	color: white;
+	font-weight: bolder;
+	margin-top: 5px;
+}
+
+.side-panel{
+	background: #3366cc;
+	border-radius: 13px;
+	box-shadow: 0 0 20px #1f3d7a inset;
+	margin-right: 10px;
+	margin-left: 40px;
+	padding-top: 10px;
+	padding-bottom: 15px;
+	height: 550px;
+	width: 200px;
+	float: left;
+}
+
+.timer{
+	background: orange;
+	border-radius: 8px;
+	border: solid 3px white;
+	box-shadow: 0 0 20px white inset;
+	height: 50px;
+	width: 150px;
+	margin-left: 23px;
+	margin-top: 15px;
+	font-size: 18px;
+	font-weight: bolder;
+	font-family: pt sans narrow;
+	color: black;
+	text-align: center;
+}
+
+.points{
+	background: yellow;
+	border-radius: 8px;
+	border: solid 3px white;
+	box-shadow: 0 0 20px white inset;
+	width: 150px;
+	height: 50px;
+	margin-left: 23px;
+	margin-top: 25px;
+	font-size: 18px;
+	font-weight: bolder;
+	color: black;
+	text-align: center;
+	font-family: pt sans narrow;
+}
+
+.start-button{
+	background: #7ee962;
+	border-radius: 8px;
+	border: solid 2px white;
+	box-shadow: 0 0 10px white inset;
+	width: 150px;
+	height: 45px;
+	font-weight: bolder;
+	font-size: 31px;
+	font-family: arial black;
+	text-align: center;
+	color: black;
+	margin-left: 23px;
+	margin-top: 50px;
+}
+/*.memory-skills{
+	font-size: 24px;
+	color: white;
+	text-align: center;
+	font-weight: bold;
+	margin-top: 50px;
+}*/
+.matching-photos{
+	font-size: 36px;
+	color: white;
+	text-align: center;
+	font-weight: bold;
+	font-family: pt sans narrow;
+	margin-top: 160px;
+}
+
+.board{
+	background: #7ee962;
+	border-radius: 13px;
+	box-shadow: 0 0 15px #006600 inset;
+	width: 650px;
+	height: 550px;
+	position: relative; 
+	padding-top: 10px;
+	padding-bottom: 15px;
+	float: left;
+}
+	
+.tile{
+	background: url('http://kawaii.kawaii.at/img/blue-green-zig-zag-stripes-Michael-Miller-fabric-171861-2.jpg');
+	border-radius: 10px;
+	border: 2px solid white;
+	box-shadow: 0 0 15px white inset;
+	width: 105px;
+	height: 128px;
+	margin-left: 10px;
+	margin-bottom: 3px;
+	margin-top: 3px;
+	margin-right: 9px;
+	float: left;
+}
