@@ -95,7 +95,7 @@
 	text-align: center;
 	color: black;
 	margin-left: 23px;
-	margin-top: 50px;
+	margin-top: 40px;
 }
 /*.memory-skills{
 	font-size: 24px;
@@ -110,7 +110,7 @@
 	text-align: center;
 	font-weight: bold;
 	font-family: pt sans narrow;
-	margin-top: 160px;
+	margin-top: 130px;
 }
 
 .board{
@@ -126,7 +126,6 @@
 }
 	
 .tile{
-	background: url('http://kawaii.kawaii.at/img/blue-green-zig-zag-stripes-Michael-Miller-fabric-171861-2.jpg');
 	border-radius: 10px;
 	border: 2px solid white;
 	box-shadow: 0 0 15px white inset;
@@ -137,4 +136,8 @@
 	margin-top: 3px;
 	margin-right: 9px;
 	float: left;
+}
+
+.face-down{
+	background: url('http://kawaii.kawaii.at/img/blue-green-zig-zag-stripes-Michael-Miller-fabric-171861-2.jpg');
 }
