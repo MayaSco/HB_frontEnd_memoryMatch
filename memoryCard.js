@@ -1,6 +1,7 @@
 //Creating the deck
-var cards = [1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10]; //"images/Tiles/IMG_"
+var cards = [0,0,1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9]; //"images/Tiles/IMG_"
 var deck = [];
+var cardCompare = [];
 function newDeck(){
   deck = cards.sort(shuffle);
 }
@@ -9,14 +10,38 @@ function shuffle(){
 }
 $(document).ready(function(){
   newDeck();
+  //pushCard();
   $(".tile").click(function(e){
 	var i =$(this).attr('id').substring(4); 
 	i--;
+	
 	//On click remove face down class
 	$(this).css('background',"url('./images/Tiles/IMG_"+deck[i]+".png')");
+	$(this).removeClass("face-down").addClass("face-up");
+	if($(".face-up").length>1){
+		var myCards = $(".face-up")
+		var card1 = deck[myCards[0].id.substring(4)-1];
+		//get card2
+		var card2 = deck[myCards[1].id.substring(4)-1];
+		//compare card1 and card 2 if equal
+		if(card1 === card2){
+			$(".face-up").removeClass("face-up");
+			 //remove face-up class and hide cards
+		} 
+		else{
+			$(".face-up").removeClass("face-up").addClass("face-down");
+					//remove face-up and add face-down class
+		}
+
+		//ensure background url goes back to back img
+		//debugger;
+	}
+		
   });
 
 });
+
+
 
 //On click remove face down class
 //Var with array of tiles = [];
@@ -46,15 +71,31 @@ $(document).ready(function(){
    },*/
 
 
+//Add card to array on click
+// function pushCard(){
+// 	$(".tile").click(function(e){
+// 		$(this).removeClass(".tile").addClass(".tile .face-up");
+
+// 		cardCompare.push(this);
+// 		console.log(cardCompare);
+		
+// 	})
+// }
+
 // Select Cards Function
 // Click on one card, to show first card and then second clicked card to check for matches
 	// onclick function (event listener) add flip class to see whether cards match
-function selectCard(){
+
+
+//function selectCard(){
+			//if()
+			//$(this).addClass("card-flipped")
+		//}
 			// do nothing if two cards are already flipped
 			// card is visible true or false
 			//check the pattern of both cards flipped 
 			// set timeout for 10 seconds later
-}
+//}
 
 // Check Cards for Match
 function checkCard(){
