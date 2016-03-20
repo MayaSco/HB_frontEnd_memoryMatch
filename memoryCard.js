@@ -1,51 +1,15 @@
 //Creating the deck
+// card match images, reflect values in the array 2 of each in deck
 var cards = [0,0,1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9]; //"images/Tiles/IMG_"
 var deck = [];
-var cardCompare = [];
+var matches = 0;
+// declare functions
 function newDeck(){
   deck = cards.sort(shuffle);
 }
 function shuffle(){
 	return 0.5 - Math.random();
 }
-$(document).ready(function(){
-  newDeck();
-  //pushCard();
-  $(".tile").click(function(e){
-	var i =$(this).attr('id').substring(4); 
-	i--;
-	
-	//On click remove face down class
-	$(this).css('background',"url('./images/Tiles/IMG_"+deck[i]+".png')");
-	$(this).removeClass("face-down").addClass("face-up");
-	if($(".face-up").length>1){
-		var myCards = $(".face-up")
-		var card1 = deck[myCards[0].id.substring(4)-1];
-		//get card2
-		var card2 = deck[myCards[1].id.substring(4)-1];
-		//compare card1 and card 2 if equal
-		if(card1 === card2){
-			$(".face-up").removeClass("face-up");
-			 //remove face-up class and hide cards
-		} 
-		else{
-			$(".face-up").removeClass("face-up").addClass("face-down");
-					//remove face-up and add face-down class
-		}
-
-		//ensure background url goes back to back img
-		//debugger;
-	}
-		
-  });
-
-});
-
-
-
-//On click remove face down class
-//Var with array of tiles = [];
-//Wrap entire game in a function, call the function(at the end) to start the game
 
 //Start of game
 	//Timer: New date object when start button is clicked, 
@@ -54,33 +18,68 @@ $(document).ready(function(){
 	//Display the number of seconds
 	//Stop timer: Clear interval function
 
-//Shuffle cards function (Fischer-Yates)	
-/*function shuffle(array) {
-  var counter = array.length, temp, index;
-	//  While there are elements in the array 
-	while (counter>0) {
-	//  pick a random index  
-		index = Math.floor(Math.random() * counter);
-		//decrease counter by 1
-		counter --;
-        temp = array[counter];
-        array[counter] = array[index];
-        array[index] = temp;
-      }
-      return array;
-   },*/
+
+//Wrap entire game in a function, call the function(at the end) to start the game
+function init(){
+}
+// when html page is finshed loading, run this
+$(document).ready(function(){
+  newDeck();
+  //add event listener when the tiles are clicked using callback onTileClick
+  $(".tile").click(onTileClick);
+});
+// declare this function
+function flipCardOver(){
+	// store all cards face-up into myCards - array of 2
+	var myCards = $(".face-up")
+	// look at first card and find value in the deck 
+		var card1 = deck[myCards[0].id.substring(4)-1];
+		//look at second card and find value in the deck
+		var card2 = deck[myCards[1].id.substring(4)-1];
+		// compare to see if they match
+		if(card1 === card2){
+			// if match, remove the face up class AND the tile class
+			$(".face-up").removeClass("face-up tile");
+			// change background image to display nothing 
+			$(myCards).css('background','none');
+			matches++;
+			 //else statement if its not a match to change background image to show back of the card
+			 // used .css to change the image 
+			 // removed face-up class and add the face-down class
+		}else{
+			$(".face-up").css('background',"url('IMG_Back.png')");
+			$(".face-up").removeClass("face-up").addClass("face-down");
+		}
+		if (matches>9){
+			celebration();
+		}
+		else{
+			// re-add the click event listener with .bind statement
+		$(".tile").bind("click",onTileClick);
+		}
+}
 
 
-//Add card to array on click
-// function pushCard(){
-// 	$(".tile").click(function(e){
-// 		$(this).removeClass(".tile").addClass(".tile .face-up");
+// declare onTileClick function 
 
-// 		cardCompare.push(this);
-// 		console.log(cardCompare);
+function onTileClick(){
+	// removing card from id and take the substring of the identifier in index 4
+	var i =$(this).attr('id').substring(4); 
+	// subtracting 1 because using number to look in the array which begins at index 0
+	i--;
+		//On click remove face down class of tile and changes background to image file
+	// then adds class face-up
+	$(this).css('background',"url('./images/Tiles/IMG_"+deck[i]+".png')");
+	$(this).removeClass("face-down").addClass("face-up");
+	// when 1 is flipped over,do nothing until 2 are flipped over then run if statement 
+	if($(".face-up").length>1){
+		// remove the click listener from tiles
+		// after 2.5 sec pause then run function flipCardOver
+		$(".tile").unbind("click");
+		setTimeout(flipCardOver,1000);
+	}
 		
-// 	})
-// }
+  }
 
 // Select Cards Function
 // Click on one card, to show first card and then second clicked card to check for matches
@@ -113,8 +112,13 @@ function RemoveMatch(){
 }
 
 // When all cards are matched
-function celebration(){}
-    // if all cards = is solved then display (animation? and final photo) 
+function celebration(){
+	    // if all cards = is solved then display (animation? and final photo) 
+	    //in raw html/css first so image is on the page display none in css
+	    //show it 
+	restartGame();
+}
+
 
 function restartGame(){}
 // End of game
