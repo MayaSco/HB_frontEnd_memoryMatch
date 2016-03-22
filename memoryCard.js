@@ -13,33 +13,13 @@ function shuffle(){
 	return 0.5 - Math.random();
 }
 //Start of game
-
-
-//Wrap entire game in a function, call the function(at the end) to start the game
 function init(){
-}
-
-function timer(){
-	// Grab current time, every second get the difference and display OR
-	//Timer: New date object when start button is clicked, 
-	//during the game setInterval at every second update the timer element
-	//Subtract old date object, find the number of seconds passed and convert it
-	//Display the number of seconds
-	//Stop timer: Clear interval function
-	$("#timer-display").html(time);
-	time++;
-	if (running)
-		// use variable for setTimeout method
-		myVar = setTimeout(timer,1000);
-}
-
-// when html page is finshed loading, run this
-$(document).ready(function(){
-  newDeck();
-  $(".tile").hide("fast");
-  $(".start-button").click(function(){
-  	$("#group-shot").fadeOut("slow");
-	$(".tile").show(1500);
+	// console.log("init function now!");
+	newDeck();
+  	$(".tile").hide("fast");
+  	$(".start-button").click(function(){
+  	$("#group-shot").fadeOut(500);
+	$(".tile").show(2000);
 
 	if(running){
 		$(".tile").unbind("click");
@@ -53,6 +33,44 @@ $(document).ready(function(){
 		}
 	});
   //add event listener when the tiles are clicked using callback onTileClick
+  
+}
+
+//Wrap entire game in a function, call the function(at the end) to start the game
+
+	// var time = 0;
+	// timer();
+function timer(){
+	//Timer uses global variable time set to zero and continually addes 1 second to its time when start button is activated 
+	//Display the number of seconds
+	$("#timer-display").html(time);
+	time++;
+	if (running)
+		// use variable for setTimeout method
+		myVar = setTimeout(timer,1400);
+}
+
+// when html page is finshed loading, run this
+$(document).ready(function(){
+	init();	
+  // newDeck();
+ //  $(".tile").hide("fast");
+ //  $(".start-button").click(function(){
+ //  	$("#group-shot").fadeOut(500);
+	// $(".tile").show(2200);
+
+	// if(running){
+	// 	$(".tile").unbind("click");
+	// 	running = false;
+	// 	$(".start-button").html("Start");
+	// }else{
+	// 	$(".tile").click(onTileClick);
+	// 	running=true;
+	// 	$(".start-button").html("Stop");
+	// 	timer();
+	// 	}
+	// });
+ //  //add event listener when the tiles are clicked using callback onTileClick
   
 });
 // declare this function
@@ -106,28 +124,46 @@ function onTileClick(){
 	}
 		
   }
-
 // When all cards are matched
 function celebration(){
 	    // if all cards = is solved then display (animation? and final photo) 
 	    //in raw html/css first so image is on the page display none in css
-	    //show it 
-
-// 	    var $show = $('.show').hide();
-// $('button').on('click', function() {
-//   $show.fadeToggle();
-// });
+	    //show it with a slow fade in
 	    $("#group-silly").fadeIn("slow");
 	    // stop timer using variable 
 	    clearTimeout(myVar);
-	restartGame();
+	    $(".start-button").html("Play again");
+	    // call restartGame function
+		restartGame();
 }
 
 function restartGame(){
 // End of game
-	//Stop timer: Clear interval function
+	// time=0;
+	// matches=0;
+	// $("#points-display").html(matches);
+	// running=false;
+	// 	$(".start-button").click(function(){
+	// 	$("#group-silly").hide("fast");
+	// 		newDeck();
+	// 		console.log("hey");
+	// Give face-down class to tile again and give background image
+	// 	$(".tile card face-down").show(1000);
+	// if(running){
+	// 	$(".tile").unbind("click");
+	// 	running = false;
+	// 	$(".start-button").html("Start");
+	// }else{
+	// 	$(".tile").click(onTileClick);
+	// 	running=true;
+	// 	$(".start-button").html("Stop");
+	// 	timer();
+	// 	}		
+		// });
+ 	location.reload();
 	//Display the date "Your time"
 	//Display final photo and a pop up "Congratulations, 'name'!" 
 			// * if API used here, check Firebase to check the scores against the top ranking and compare
 	// "Press start to play again, 'name'!" restart game call setup function (Start of game)
+	// init();
 }
