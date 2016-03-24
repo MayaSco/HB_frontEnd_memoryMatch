@@ -132,9 +132,9 @@ function celebration(){
 	    $("#group-silly").fadeIn("slow");
 	    // stop timer using variable 
 	    clearTimeout(myVar);
-	    $(".start-button").html("Play again");
+	    $(".start-button").html("Play Again");
+	    $(".start-button").click(restartGame);
 	    // call restartGame function
-		restartGame();
 }
 
 function restartGame(){
