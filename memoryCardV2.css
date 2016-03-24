@@ -61,7 +61,7 @@
 	margin-top: 15px;
 	font-size: 18px;
 	font-weight: bolder;
-	font-family: pt sans narrow;
+	font-family: verdana, helvetica;
 	color: black;
 	text-align: center;
 }
@@ -79,7 +79,23 @@
 	font-weight: bolder;
 	color: black;
 	text-align: center;
-	font-family: pt sans narrow;
+	font-family: verdana, helvetica;
+}
+
+.name{
+	background: #daf9d2;
+	border-radius: 8px;
+	border: solid 3px white;
+	box-shadow: 0 0 20px white inset;
+	width: 150px;
+	height: 50px;
+	margin-left: 23px;
+	margin-top: 25px;
+	font-size: 14px;
+	font-weight: bolder;
+	color: black;
+	text-align: center;
+	font-family: verdana, helvetica;
 }
 
 .start-button{
@@ -88,14 +104,15 @@
 	border: solid 2px white;
 	box-shadow: 0 0 10px white inset;
 	width: 150px;
-	height: 45px;
+	height: 40px;
 	font-weight: bolder;
-	font-size: 31px;
-	font-family: arial black;
+	font-size: 25px;
+	font-family: verdana, Helvetica;
 	text-align: center;
 	color: black;
 	margin-left: 23px;
-	margin-top: 40px;
+	margin-top: 30px;
+	padding-top: 12px;
 }
 
 .matching-photos{
@@ -103,8 +120,8 @@
 	color: white;
 	text-align: center;
 	font-weight: bold;
-	font-family: pt sans narrow;
-	margin-top: 130px;
+	font-family: verdana, helvetica;
+	margin-top: 50px;
 }
 
 .board{
@@ -135,7 +152,7 @@
 }
 
 .face-down{
-	background: url('IMG_Back.png');
+	background: url('IMG_Back.png') no-repeat;
 }
 
 .card{
